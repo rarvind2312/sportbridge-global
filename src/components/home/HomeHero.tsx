@@ -33,7 +33,7 @@ export function HomeHero() {
       <div className="container-wide relative z-10 flex min-h-[640px] items-center py-16 md:min-h-[720px] md:py-20 lg:min-h-[min(70vw,860px)] lg:py-24">
         <div className="max-w-xl lg:max-w-[34rem] xl:max-w-[36rem]">
           <motion.p
-            className="eyebrow"
+            className="eyebrow !text-primary"
             initial={reduce ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4 }}
@@ -48,9 +48,9 @@ export function HomeHero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.55 }}
           >
-            <span className="block whitespace-nowrap py-1">CONNECTING TALENT.</span>
-            <span className="block whitespace-nowrap py-1">TECHNOLOGY.</span>
-            <span className="block whitespace-nowrap py-1 text-[#8F6F2E]">OPPORTUNITY.</span>
+            <span className="block whitespace-nowrap py-1">CONNECTING TALENT</span>
+            <span className="block whitespace-nowrap py-1">TECHNOLOGY</span>
+            <span className="block whitespace-nowrap py-1 text-gold">OPPORTUNITY</span>
           </motion.h1>
 
           <motion.p
