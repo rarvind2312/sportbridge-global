@@ -7,12 +7,12 @@ type RevealProps = {
   children: ReactNode;
   className?: string;
   delay?: number;
-  y?: number;
 };
 
-export function Reveal({ children, className, delay = 0, y = 16 }: RevealProps) {
+export function Reveal({ children, className, delay = 0 }: RevealProps) {
   const reduce = useReducedMotion();
 
+  // Opacity-only: translateY transforms create containing blocks that clip Syne descenders.
   if (reduce) {
     return <div className={className}>{children}</div>;
   }
@@ -20,9 +20,9 @@ export function Reveal({ children, className, delay = 0, y = 16 }: RevealProps) 
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.12 }}
       transition={{ duration: 0.45, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}

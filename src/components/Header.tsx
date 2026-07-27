@@ -38,29 +38,29 @@ export function Header() {
           : "bg-white/95 backdrop-blur-md"
       }`}
     >
-      <div className="container-wide flex h-[4.5rem] items-center justify-between gap-4 md:h-[5.5rem]">
+      <div className="container-wide flex h-[5rem] items-center justify-between gap-4 md:h-[6rem]">
         <Link href="/" aria-label="SportBridge Global home" className="shrink-0">
           <LogoHorizontal
-            className="h-[46px] w-auto max-w-[min(100%,280px)] object-contain object-left md:h-[62px] md:max-w-none lg:h-[66px]"
+            className="!h-auto !w-auto max-w-[190px] object-contain object-left sm:max-w-[220px] md:max-w-[240px] xl:max-w-[310px]"
             priority
             variant="dark"
           />
         </Link>
 
-        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Primary">
           {navLinks.map((link) => {
             const active = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`group relative px-3.5 py-2 text-[0.95rem] font-semibold tracking-[-0.01em] transition-colors ${
+                className={`nav-link group relative px-3 text-[0.9rem] font-semibold tracking-[-0.01em] transition-colors ${
                   active ? "text-primary" : "text-[#12352F]/85 hover:text-primary"
                 }`}
               >
                 {link.label}
                 <span
-                  className={`absolute inset-x-3.5 -bottom-0.5 h-[2px] rounded-full bg-gold transition-opacity ${
+                  className={`absolute inset-x-3 bottom-1 h-[2px] rounded-full bg-gold transition-opacity ${
                     active ? "opacity-100" : "opacity-0 group-hover:opacity-70"
                   }`}
                   aria-hidden
@@ -70,15 +70,21 @@ export function Header() {
           })}
         </nav>
 
-        <div className="hidden lg:block">
-          <Link href="/contact" className="btn-primary !px-4 !py-2.5 !text-sm !shadow-none">
+        <div className="hidden xl:block">
+          <Link
+            href="/contact"
+            className="btn-primary !min-h-[2.85rem] !px-4 !py-2.5 !text-sm !shadow-none"
+          >
             Start a Conversation
+            <span className="text-gold" aria-hidden>
+              →
+            </span>
           </Link>
         </div>
 
         <button
           type="button"
-          className="relative z-50 flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white lg:hidden"
+          className="relative z-50 flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white xl:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -106,7 +112,7 @@ export function Header() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="absolute inset-x-0 top-full z-40 border-b border-line bg-white lg:hidden"
+            className="absolute inset-x-0 top-full z-40 border-b border-line bg-white xl:hidden"
             initial={{ opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}

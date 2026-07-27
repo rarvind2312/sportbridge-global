@@ -1,53 +1,82 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
 import { SafeImage } from "@/components/ui/SafeImage";
 import { partners } from "@/lib/data";
 
 export function NetworkCollaborations() {
   return (
-    <section className="section-light section-pad">
+    <section className="section-soft section-pad">
       <div className="container-wide">
         <Reveal>
-          <p className="eyebrow">Network & Collaborations</p>
-          <h2 className="heading-lg mt-4 max-w-3xl">
-            Connected across the sporting ecosystem.
+          <p className="eyebrow">Our Growing Network</p>
+          <h2 className="heading-lg mt-5 max-w-3xl">
+            Building relationships across sport, performance and technology.
           </h2>
-          <p className="lead mt-5">
-            We work with academies, coaches, sporting organisations and technology providers to
-            explore meaningful programs, partnerships and development opportunities.
-          </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-3">
-          {partners.map((partner, i) => (
-            <Reveal key={partner.name} delay={0.05 * i}>
-              <motion.div
-                whileHover={{ y: -3 }}
-                className="group card-premium flex min-h-[168px] items-center justify-center px-8 py-10"
-              >
+        <div className="mt-16 flex flex-col items-stretch justify-center gap-8 md:flex-row md:items-center md:gap-0">
+          {partners.map((partner, i) => {
+            const content = (
+              <div className="group flex h-[110px] w-full max-w-[210px] items-center justify-center px-2 md:h-[120px] md:w-[190px] lg:w-[210px]">
                 {partner.logoSrc ? (
                   <SafeImage
                     src={partner.logoSrc}
                     alt={`${partner.name} logo`}
-                    width={200}
-                    height={80}
-                    className="h-14 w-auto max-h-14 max-w-[190px] object-contain opacity-90 transition-opacity duration-300 group-hover:opacity-100"
+                    width={240}
+                    height={120}
+                    className="max-h-[88px] w-auto max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.03] md:max-h-[100px]"
                   />
                 ) : (
                   <span className="font-display text-lg font-bold text-primary">{partner.name}</span>
                 )}
-              </motion.div>
-            </Reveal>
-          ))}
+              </div>
+            );
+
+            return (
+              <Reveal key={partner.name} delay={0.05 * i} className="flex items-center justify-center">
+                {i > 0 ? (
+                  <div
+                    className="mx-4 hidden h-16 w-px bg-gradient-to-b from-transparent via-gold/60 to-transparent md:block"
+                    aria-hidden
+                  />
+                ) : null}
+                {partner.href ? (
+                  <Link
+                    href={partner.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={
+                      partner.ariaLabel || `Visit ${partner.name} (opens in a new tab)`
+                    }
+                    className="inline-flex justify-center"
+                  >
+                    {content}
+                  </Link>
+                ) : (
+                  content
+                )}
+              </Reveal>
+            );
+          })}
         </div>
 
-        <Reveal className="mt-8">
-          <Link href="/network" className="text-sm font-semibold text-primary hover:text-gold">
-            View our network →
-          </Link>
+        <Reveal className="mt-12">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-[0.72rem] font-bold uppercase tracking-[0.2em] text-gold">
+              A growing sporting ecosystem
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-ink-muted md:text-base">
+              Additional collaborations and partnerships are currently in discussion.
+            </p>
+            <Link
+              href="/network"
+              className="mt-6 inline-flex text-sm font-semibold text-primary hover:text-gold"
+            >
+              View Our Network →
+            </Link>
+          </div>
         </Reveal>
       </div>
     </section>

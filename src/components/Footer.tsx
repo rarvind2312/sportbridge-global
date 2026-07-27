@@ -8,7 +8,12 @@ export function Footer() {
       <div className="container-wide section-pad !py-16">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1.2fr]">
           <div>
-            <LogoHorizontal className="h-12 w-auto md:h-14" variant="light" />
+            <div className="inline-flex rounded-xl bg-[#F7F5F0] px-3 py-2.5">
+              <LogoHorizontal
+                className="h-11 w-auto max-w-[260px] object-contain object-left md:h-12 md:max-w-[300px]"
+                variant="dark"
+              />
+            </div>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-ink-muted-on-dark">
               {siteConfig.tagline}
             </p>

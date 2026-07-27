@@ -20,8 +20,8 @@ export default function HomePage() {
     <>
       <HomeHero />
       <WhatWeDo />
-      <ConnectedMarkets />
       <NetworkCollaborations />
+      <ConnectedMarkets />
       <WhySportBridge />
       <FinalCTA />
     </>

@@ -54,8 +54,8 @@
   --color-glass-border: var(--glass-border);
   --color-glass-dark: var(--glass-dark);
   --color-glass-dark-border: var(--glass-dark-border);
-  --font-display: var(--font-syne);
-  --font-sans: var(--font-manrope);
+  --font-display: var(--font-figtree);
+  --font-sans: var(--font-dm-sans);
 }
 
 * {
@@ -69,9 +69,38 @@ html {
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
   min-height: 100vh;
-  overflow-x: hidden;
+  line-height: 1.7;
+  /* subpixel AA — grayscale antialiasing makes Figtree/DM Sans descenders look chopped */
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+  text-rendering: optimizeLegibility;
+}
+
+/* Full descenders — avoid overflow clipping on display type */
+.font-display,
+.heading-xl,
+.heading-lg,
+.heading-md,
+h1,
+h2,
+h3 {
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  overflow: visible !important;
+  text-overflow: clip;
+  line-height: 1.35;
+  padding-bottom: 0.15em;
+}
+
+p,
+li,
+label,
+button,
+a,
+.eyebrow,
+.lead {
+  overflow: visible;
 }
 
 ::selection {
@@ -93,6 +122,11 @@ a {
   position: relative;
   isolation: isolate;
   background: var(--bg);
+  overflow: visible;
+}
+
+main {
+  overflow: visible;
 }
 
 .container-page {
@@ -100,13 +134,25 @@ a {
   margin-inline: auto;
 }
 
+@media (min-width: 768px) {
+  .container-page {
+    width: min(1120px, calc(100% - 8vw));
+  }
+}
+
 .container-wide {
   width: min(1180px, calc(100% - 2.5rem));
   margin-inline: auto;
 }
 
+@media (min-width: 768px) {
+  .container-wide {
+    width: min(1180px, calc(100% - 7vw));
+  }
+}
+
 .font-display {
-  font-family: var(--font-syne), system-ui, sans-serif;
+  font-family: var(--font-figtree), system-ui, sans-serif;
 }
 
 .text-balance {
@@ -169,12 +215,14 @@ a {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.9rem 1.5rem;
+  min-height: 3.15rem;
+  padding: 0.95rem 1.55rem;
   background: var(--primary);
   color: var(--ink-on-dark);
   font-weight: 700;
   font-size: 0.9rem;
   letter-spacing: 0.02em;
+  line-height: 1.2;
   border-radius: 999px;
   border: 1px solid transparent;
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
@@ -192,11 +240,13 @@ a {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.9rem 1.5rem;
+  min-height: 3.15rem;
+  padding: 0.95rem 1.55rem;
   background: transparent;
   color: var(--primary);
   font-weight: 600;
   font-size: 0.9rem;
+  line-height: 1.2;
   border-radius: 999px;
   border: 1px solid var(--line-strong);
   transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
@@ -213,8 +263,37 @@ a {
   transform: translateY(-1px);
 }
 
+.btn-secondary-gold {
+  border-color: rgba(185, 147, 82, 0.55);
+}
+
+.btn-secondary-gold:hover {
+  border-color: var(--gold);
+  background: var(--gold-muted);
+}
+
+.section-light,
+.section-soft,
+.section-muted,
+.section-dark,
 .section-pad {
-  padding-block: clamp(4rem, 8vw, 6.5rem);
+  overflow: visible;
+}
+
+.section-pad {
+  padding-block: clamp(3.5rem, 7vw, 5.75rem);
+}
+
+.btn-primary,
+.btn-secondary {
+  max-width: 100%;
+}
+
+@media (max-width: 479px) {
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
 }
 
 .eyebrow {
@@ -223,41 +302,85 @@ a {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.2em;
+  line-height: 1.45;
+  padding-block: 0.15em;
   text-transform: uppercase;
+  overflow: visible;
 }
 
 .heading-xl {
-  font-family: var(--font-syne), system-ui, sans-serif;
-  font-size: clamp(2.4rem, 5.2vw, 3.85rem);
-  line-height: 1.02;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: clamp(2rem, 5.5vw, 3.6rem);
+  line-height: 1.4 !important;
   font-weight: 700;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.025em;
   color: var(--primary);
+  max-width: min(100%, 22ch);
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  overflow: visible !important;
+  padding-top: 0.05em;
+  padding-bottom: 0.2em !important;
+  height: auto;
+  max-height: none;
 }
 
 .heading-lg {
-  font-family: var(--font-syne), system-ui, sans-serif;
-  font-size: clamp(1.75rem, 3.2vw, 2.55rem);
-  line-height: 1.12;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--primary);
-}
-
-.heading-md {
-  font-family: var(--font-syne), system-ui, sans-serif;
-  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
-  line-height: 1.25;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: clamp(1.55rem, 3.4vw, 2.45rem);
+  line-height: 1.45 !important;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--primary);
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  overflow: visible !important;
+  padding-top: 0.05em;
+  padding-bottom: 0.25em !important;
+  height: auto;
+  max-height: none;
+}
+
+.heading-md {
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  line-height: 1.4 !important;
+  font-weight: 700;
+  letter-spacing: -0.012em;
+  color: var(--primary);
+  overflow-wrap: break-word;
+  overflow: visible !important;
+  padding-top: 0.04em;
+  padding-bottom: 0.22em !important;
+  height: auto;
+  max-height: none;
 }
 
 .lead {
   color: var(--ink-muted);
-  font-size: clamp(1.02rem, 1.3vw, 1.125rem);
-  line-height: 1.7;
-  max-width: 40rem;
+  font-size: clamp(1rem, 1.3vw, 1.125rem);
+  line-height: 1.75;
+  max-width: 62ch;
+  overflow: visible;
+  padding-bottom: 0.25em;
+}
+
+.heading-safe {
+  overflow: visible !important;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  height: auto;
+  max-height: none;
+  line-height: 1.35 !important;
+  padding-bottom: 0.28em;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.45;
+  padding-block: 0.55rem;
+  overflow: visible;
 }
 
 .divider-gold {

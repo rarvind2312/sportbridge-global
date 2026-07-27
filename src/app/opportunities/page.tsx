@@ -2,41 +2,54 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
+import { ServiceIcon, type IconName } from "@/components/ui/ServiceIcon";
 import { focusAreas, opportunities } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Opportunities",
   description:
-    "Explore SportBridge Global opportunities across athlete pathways, coaching residencies, technology partnerships and commercial briefings.",
+    "Explore SportBridge Global opportunity categories across coaching programs, international pathways, technology collaborations, high performance and strategic partnerships.",
   alternates: { canonical: "/opportunities" },
 };
+
+const areaIcons: IconName[] = [
+  "performance",
+  "pathways",
+  "technology",
+  "performance",
+  "advisory",
+  "network",
+];
 
 export default function OpportunitiesPage() {
   return (
     <>
       <PageHero
         eyebrow="Opportunities"
-        title="Open pathways for athletes, organisations and partners."
-        lead="Current focus areas and programme opportunities across international pathways, technology and commercial collaboration."
+        title="Pathways for athletes, organisations and partners."
+        lead="Explore opportunity categories across coaching, international pathways, technology collaborations, high performance and strategic partnerships."
       />
 
       <section className="section-light section-pad !pt-10">
         <div className="container-page">
-          <Reveal>
-            <p className="eyebrow">Current Focus</p>
-            <h2 className="heading-lg mt-4 text-ink">Strategic priorities</h2>
+          <Reveal className="pb-1">
+            <p className="eyebrow">Categories</p>
+            <h2 className="heading-lg mt-4 text-ink">Where we can collaborate</h2>
           </Reveal>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {focusAreas.map((area, i) => (
               <Reveal key={area.title} delay={0.04 * i}>
                 <Link href={area.href} className="block h-full">
-                  <article className="card-premium min-h-[170px] p-6 transition-transform hover:-translate-y-1">
-                    <p className="text-xs font-semibold tracking-[0.16em] text-primary">
+                  <article className="card-premium flex h-full min-h-[170px] flex-col p-6 transition-transform hover:-translate-y-1">
+                    <ServiceIcon name={areaIcons[i % areaIcons.length]} className="h-10 w-10" />
+                    <p className="mt-5 text-xs font-semibold tracking-[0.16em] text-primary">
                       {String(i + 1).padStart(2, "0")}
                     </p>
-                    <h3 className="mt-5 font-display text-xl font-bold text-ink">{area.title}</h3>
-                    <p className="mt-3 text-sm text-ink-muted leading-relaxed">{area.text}</p>
+                    <h3 className="mt-3 font-display text-xl font-bold leading-[1.4] text-ink">
+                      {area.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-[1.65] text-ink-muted">{area.text}</p>
                   </article>
                 </Link>
               </Reveal>
@@ -47,12 +60,16 @@ export default function OpportunitiesPage() {
 
       <section className="section-soft border-t border-line">
         <div className="container-page section-pad">
-          <Reveal>
+          <Reveal className="pb-1">
             <p className="eyebrow">Open Enquiries</p>
             <h2 className="heading-lg mt-4 text-ink">Programme opportunities</h2>
+            <p className="lead mt-4">
+              These are conversation starters—not guarantees. Share your context and we will advise
+              whether a programme or introduction is a fit.
+            </p>
           </Reveal>
 
-          <div className="mt-10 space-y-4">
+          <div className="mt-12 space-y-4">
             {opportunities.map((item, i) => (
               <Reveal key={item.title} delay={0.04 * i}>
                 <article className="card-premium grid gap-4 p-6 md:grid-cols-[1fr_auto] md:items-center md:gap-8 md:p-8">
@@ -65,13 +82,13 @@ export default function OpportunitiesPage() {
                       <span className="text-xs font-medium text-ink-dim">{item.location}</span>
                     </div>
                     <h3 className="heading-md mt-3 text-ink">{item.title}</h3>
-                    <p className="mt-3 max-w-2xl text-ink-muted leading-relaxed">{item.summary}</p>
+                    <p className="mt-3 max-w-2xl leading-[1.65] text-ink-muted">{item.summary}</p>
                   </div>
                   <Link
                     href="/contact"
-                    className="btn-secondary !text-ink justify-self-start md:justify-self-end"
+                    className="btn-secondary justify-self-start md:justify-self-end"
                   >
-                    Enquire
+                    Discuss an Opportunity
                   </Link>
                 </article>
               </Reveal>

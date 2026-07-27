@@ -8,27 +8,21 @@ import { homeWhatWeDo } from "@/lib/data";
 
 export function WhatWeDo() {
   return (
-    <section className="section-light section-pad">
-      <div className="container-wide">
-        <Reveal>
-          <p className="eyebrow">What We Do</p>
-          <h2 className="heading-lg mt-4 max-w-2xl">Four pillars. Clear outcomes.</h2>
-        </Reveal>
-
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+    <section className="border-b border-line bg-bg">
+      <div className="container-wide py-8 md:py-10">
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4 xl:gap-8">
           {homeWhatWeDo.map((item, i) => (
-            <Reveal key={item.title} delay={0.05 * i}>
-              <Link href={item.href} className="block h-full">
+            <Reveal key={item.title} delay={0.04 * i}>
+              <Link href={item.href} className="group block h-full">
                 <motion.article
-                  whileHover={{ y: -4 }}
-                  className="card-premium group flex h-full flex-col p-6 md:p-7"
+                  whileHover={{ y: -2 }}
+                  className="flex h-full flex-col items-start gap-3 px-1 py-2"
                 >
-                  <ServiceIcon name={item.icon} />
-                  <h3 className="heading-md mt-5">{item.title}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-muted">{item.text}</p>
-                  <span className="mt-5 text-sm font-semibold text-primary transition-colors group-hover:text-gold">
-                    View Service →
-                  </span>
+                  <ServiceIcon name={item.icon} className="h-10 w-10" />
+                  <h3 className="font-display text-[0.95rem] font-bold uppercase leading-[1.45] tracking-[0.02em] text-primary">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-[1.65] text-ink-muted">{item.text}</p>
                 </motion.article>
               </Link>
             </Reveal>

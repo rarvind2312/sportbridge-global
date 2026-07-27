@@ -24,7 +24,10 @@ export default function ContactPage() {
       <section className="section-light section-pad !pt-10">
         <div className="container-page">
           <Reveal>
-            <LogoHorizontal className="h-12 w-auto md:h-14" variant="dark" />
+            <LogoHorizontal
+              className="h-12 w-auto max-w-[280px] object-contain object-left md:h-14"
+              variant="dark"
+            />
             <p className="mt-4 text-sm text-ink-muted">{siteConfig.location}</p>
           </Reveal>
 

@@ -41,7 +41,7 @@ export function ConnectedMarkets() {
   return (
     <section className="section-soft section-pad">
       <div className="container-wide">
-        <Reveal>
+        <Reveal className="pb-1">
           <p className="eyebrow">Our Network</p>
           <h2 className="heading-lg mt-4 max-w-3xl uppercase tracking-[-0.03em]">
             Connected across key sporting markets
@@ -52,7 +52,7 @@ export function ConnectedMarkets() {
           </p>
         </Reveal>
 
-        <div className="relative mt-12">
+        <div className="relative mt-14">
           <div
             className="pointer-events-none absolute left-[8%] right-[8%] top-[3.25rem] hidden h-px md:block"
             aria-hidden
@@ -77,15 +77,13 @@ export function ConnectedMarkets() {
               <Reveal key={market.city} delay={0.06 * i}>
                 <motion.article
                   whileHover={reduce ? undefined : { y: -3 }}
-                  className="card-premium relative h-full p-7"
+                  className="card-premium h-full p-7"
                 >
                   <div className="flex items-start justify-between gap-3">
-                    <span className="font-display text-2xl font-bold text-gold">
-                      {market.number}
-                    </span>
+                    <span className="font-display text-2xl font-bold text-gold">{market.number}</span>
                     <PinIcon />
                   </div>
-                  <h3 className="mt-8 font-display text-2xl font-bold uppercase tracking-[-0.02em] text-primary">
+                  <h3 className="mt-8 font-display text-2xl font-bold uppercase leading-[1.4] tracking-[-0.02em] text-primary">
                     {market.city}
                   </h3>
                   <p className="mt-1 text-sm font-semibold uppercase tracking-[0.14em] text-ink-dim">

@@ -130,6 +130,10 @@ export const servicePillars = [
         text: "Multi-location blocks coordinated across partner venues, climates and competition calendars.",
       },
       {
+        title: "Academy Partnerships",
+        text: "Structured collaborations between development environments across markets.",
+      },
+      {
         title: "Athlete Pathways",
         text: "End-to-end progression frameworks from identification through development to professional readiness.",
       },
@@ -145,6 +149,10 @@ export const servicePillars = [
     icon: "performance" as const,
     points: [
       {
+        title: "High Performance Camps",
+        text: "Focused training blocks designed around measurable technical and physical outcomes.",
+      },
+      {
         title: "Pace Bowling Labs",
         text: "Velocity, biomechanics, seam presentation and workload management in specialist pace environments.",
       },
@@ -157,7 +165,11 @@ export const servicePillars = [
         text: "Coded footage and technical breakdowns that connect technique to training priorities.",
       },
       {
-        title: "Coach Education",
+        title: "Technical Reviews",
+        text: "Structured technical assessments used to prioritise coaching interventions.",
+      },
+      {
+        title: "Coach Development",
         text: "Structured learning for coaches working inside labs, academies and pathway programmes.",
       },
     ],
@@ -176,7 +188,7 @@ export const servicePillars = [
         text: "Rapid validation of sports platforms inside real academy, club and pathway environments.",
       },
       {
-        title: "Analytics",
+        title: "Performance Analytics",
         text: "Performance and commercial data systems that support clearer coaching and business decisions.",
       },
       {
@@ -184,62 +196,123 @@ export const servicePillars = [
         text: "Structured introductions between providers and organisations ready to pilot and deploy.",
       },
       {
-        title: "Innovation Initiatives",
+        title: "Innovation Programs",
         text: "Programmes that test emerging tools without requiring full-scale organisational commitment.",
+      },
+      {
+        title: "Digital Transformation",
+        text: "Practical roadmaps for organisations adopting digital performance and operations tools.",
       },
     ],
   },
   {
     slug: "sports-business-advisory",
-    title: "Sports Business & Strategic Advisory",
+    title: "Strategic Partnerships",
     summary:
-      "Commercial strategy, sponsorship systems, valuations and partnership frameworks.",
+      "Strategic introductions, sponsorship systems and organisational collaboration frameworks.",
     detail:
-      "From sponsorship CRM to tournament and team valuations, we bring investor-ready clarity to sports business decisions.",
+      "We help organisations build commercial partnerships and collaboration models with clarity and credible facilitation.",
     icon: "advisory" as const,
     points: [
+      {
+        title: "Strategic Introductions",
+        text: "Curated connections across brands, operators, academies and sporting organisations.",
+      },
       {
         title: "Sponsorship CRM",
         text: "Operating systems for rights inventory, renewals, activation and relationship intelligence.",
       },
       {
-        title: "Market Analysis",
-        text: "B2B and B2C landscape insight for market entry, expansion and partnership positioning.",
+        title: "Commercial Partnerships",
+        text: "Frameworks for sponsorship, activation and long-term commercial collaboration.",
       },
       {
-        title: "Team & Tournament Valuations",
-        text: "Independent frameworks covering enterprise value, rights packages and commercial assets.",
-      },
-      {
-        title: "Strategic Introductions",
-        text: "Curated connections across brands, operators, academies and investors.",
+        title: "Organisational Collaboration",
+        text: "Multi-party programmes that align academies, clubs and partners around shared outcomes.",
       },
     ],
   },
   {
-    slug: "performance-intelligence",
-    title: "Performance Intelligence",
+    slug: "market-intelligence",
+    title: "Market Intelligence",
     summary:
-      "Video analysis, athlete profiling and insight systems that inform coaching and selection.",
+      "Market analysis, commercial insights and valuation frameworks for sporting organisations.",
     detail:
-      "Actionable intelligence connecting technique, workload and match outcomes for athletes, coaches and organisations.",
+      "Decision support for organisations evaluating markets, tournaments, teams and commercial opportunity.",
     icon: "intelligence" as const,
+    tier: "secondary" as const,
     points: [
       {
-        title: "Athlete Profiling",
-        text: "Professional profiles that present capability, trajectory and readiness for selection conversations.",
+        title: "Market Analysis",
+        text: "B2B and B2C landscape insight for market entry, expansion and partnership positioning.",
       },
       {
-        title: "Insight Systems",
-        text: "Feedback loops that turn footage and performance data into coaching action.",
+        title: "Commercial Insights",
+        text: "Partnership intelligence for brands, operators and sporting organisations.",
       },
       {
-        title: "Selection Support",
-        text: "Clear visual and narrative assets used by coaches, academies and pathway decision-makers.",
+        title: "Tournament Valuations",
+        text: "Rights, media and sponsorship frameworks for event portfolios.",
       },
       {
-        title: "Continuous Review",
-        text: "Ongoing analysis cycles aligned to camps, tours and competition blocks.",
+        title: "Team Valuations",
+        text: "Enterprise assessments integrating brand, performance and commercial assets.",
+      },
+    ],
+  },
+  {
+    slug: "athlete-development",
+    title: "Athlete Development",
+    summary:
+      "Profile building, development programmes and international exposure pathways.",
+    detail:
+      "Support for athletes progressing from development environments into higher-performance opportunity.",
+    icon: "athlete" as const,
+    tier: "secondary" as const,
+    points: [
+      {
+        title: "Profile Building",
+        text: "Professional profiles that present capability, trajectory and readiness.",
+      },
+      {
+        title: "Development Programs",
+        text: "Structured technical, physical and professional progression plans.",
+      },
+      {
+        title: "International Exposure",
+        text: "Training and competitive opportunities across operating markets.",
+      },
+      {
+        title: "Performance Pathways",
+        text: "Clear next-step pathways connecting academies, camps and HP environments.",
+      },
+    ],
+  },
+  {
+    slug: "network-collaborations",
+    title: "Network Collaborations",
+    summary:
+      "Connections across academies, coaches, sporting organisations and technology providers.",
+    detail:
+      "Facilitated collaboration that expands capability without forcing every organisation to build alone.",
+    icon: "network" as const,
+    tier: "secondary" as const,
+    points: [
+      {
+        title: "Academy Connections",
+        text: "Partnerships between development environments across Melbourne, Hyderabad and Chennai.",
+      },
+      {
+        title: "Coach Networks",
+        text: "Exchanges and residencies that transfer methods between coaching systems.",
+      },
+      {
+        title: "Sporting Organisations",
+        text: "Collaboration models for clubs, franchises and sporting bodies.",
+      },
+      {
+        title: "Technology Providers",
+        text: "Introductions that place tools inside real sporting environments.",
       },
     ],
   },
@@ -326,28 +399,33 @@ export const partners: Array<{
   short: string;
   logoSrc?: string;
   href?: string;
+  ariaLabel?: string;
   description: string;
 }> = [
   {
-    name: "Topline Cricket",
+    name: "Topline NextGen",
     short: "Topline",
-    logoSrc: "/logos/partners/topline.jpg",
+    logoSrc: "/partners/topline.png",
     href: "https://toplinecricket.com.au/",
+    ariaLabel: "Visit Topline Cricket website",
     description:
       "NextGen cricket centre supporting academy pathways, indoor training and high-performance development.",
   },
   {
-    name: "F16 Sports",
+    name: "F16",
     short: "F16",
-    logoSrc: "/logos/partners/f16.jpg",
+    logoSrc: "/partners/f16.png",
     href: "https://www.f16sports.com/",
+    ariaLabel: "Visit F16 Sports website",
     description:
       "Sports organisation collaborating across development programs and commercial network activity.",
   },
   {
-    name: "CFC Cricket Academy",
+    name: "CFC Excellence Cricket Academy",
     short: "CFC",
-    logoSrc: "/logos/partners/cfc.jpg",
+    logoSrc: "/partners/cfc.png",
+    href: "https://www.instagram.com/cfcexcellencecricketacademy/reels/",
+    ariaLabel: "Visit CFC Excellence Cricket Academy on Instagram",
     description:
       "Academy partner focused on talent development and high-performance cricket pathways.",
   },
@@ -356,25 +434,25 @@ export const partners: Array<{
 export const homeWhatWeDo = [
   {
     title: "Global Pathways",
-    text: "Structured international exposure for athletes and coaches.",
+    text: "Connecting talent across borders.",
     href: "/services#global-pathway-programs",
     icon: "pathways" as const,
   },
   {
     title: "High Performance",
-    text: "Specialist labs, camps and coach education environments.",
+    text: "Developing athletes and coaches.",
     href: "/services#high-performance-programs",
     icon: "performance" as const,
   },
   {
     title: "Sports Technology",
-    text: "Platform PoCs, analytics and innovation partnerships.",
+    text: "Leveraging data and innovation.",
     href: "/services#sports-technology-innovation",
     icon: "technology" as const,
   },
   {
     title: "Strategic Partnerships",
-    text: "Sponsorship systems, valuations and strategic introductions.",
+    text: "Building long-term collaborations.",
     href: "/services#sports-business-advisory",
     icon: "advisory" as const,
   },
@@ -383,48 +461,48 @@ export const homeWhatWeDo = [
 export const whyPillars = [
   {
     title: "Global Perspective",
-    text: "Programs and partnerships shaped for multi-market sporting realities.",
+    text: "Connecting sporting ecosystems across Australia and India.",
   },
   {
     title: "Independent Facilitation",
-    text: "Neutral bridge-building between talent, organisations and opportunity.",
+    text: "Bringing together organisations, specialists and opportunities.",
   },
   {
     title: "Technology-Led Thinking",
-    text: "Practical innovation that supports performance and commercial decisions.",
+    text: "Using innovation and performance intelligence to create better sporting outcomes.",
   },
 ] as const;
 
 export const focusAreas = [
   {
-    title: "Cricket Development",
-    text: "Building sustainable talent systems across academies and clubs.",
-    href: "/services#global-pathway-programs",
+    title: "Coaching Programs",
+    text: "Residencies and exchanges that transfer methods between coaching systems.",
+    href: "/services#high-performance-programs",
   },
   {
     title: "International Pathways",
-    text: "Structured overseas exposure and placement programmes.",
+    text: "Structured overseas exposure and placement programmes for athletes and coaches.",
     href: "/services#global-pathway-programs",
   },
   {
-    title: "Sports Technology",
-    text: "Innovation partnerships and platform validation.",
+    title: "Technology Collaborations",
+    text: "Platform PoCs and innovation partnerships with sports technology providers.",
     href: "/services#sports-technology-innovation",
   },
   {
-    title: "Athlete Development",
-    text: "Holistic progression from development to professional readiness.",
+    title: "High Performance Programs",
+    text: "Specialist camps, labs and performance environments built for measurable progress.",
     href: "/services#high-performance-programs",
   },
   {
     title: "Strategic Partnerships",
-    text: "Long-term alliances across markets and organisations.",
-    href: "/network",
+    text: "Introductions and collaboration frameworks across organisations and markets.",
+    href: "/services#sports-business-advisory",
   },
   {
-    title: "Commercial Opportunities",
-    text: "Sponsorship, valuations and investor-ready briefs.",
-    href: "/services#sports-business-advisory",
+    title: "Academy Collaborations",
+    text: "Development partnerships connecting academies across Melbourne, Hyderabad and Chennai.",
+    href: "/network",
   },
 ] as const;
 
@@ -444,18 +522,18 @@ export const opportunities = [
       "Immersive residencies for coaches working inside specialist labs and HP environments.",
   },
   {
-    title: "Technology Partnerships",
+    title: "Technology Collaborations",
     type: "Innovation",
     location: "Melbourne · Hyderabad · Chennai",
     summary:
       "Platform PoCs and partnership programmes for sports technology providers and operators.",
   },
   {
-    title: "Commercial & Investment Briefings",
-    type: "Business",
+    title: "Strategic Partnership Briefings",
+    type: "Partnerships",
     location: "By invitation",
     summary:
-      "Valuation-backed briefings for brands, operators and investors evaluating sports opportunities.",
+      "Conversations for organisations exploring commercial collaboration, sponsorship systems and network introductions.",
   },
 ] as const;
 

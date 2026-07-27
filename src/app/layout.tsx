@@ -1,20 +1,26 @@
 import type { Metadata } from "next";
-import { Manrope, Syne } from "next/font/google";
+import { DM_Sans, Figtree } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { contacts, siteConfig } from "@/lib/data";
 import "./globals.css";
 
-const syne = Syne({
-  variable: "--font-syne",
+/* Figtree/DM Sans chosen over Syne/Manrope — Syne’s short geometric descenders
+   read as clipped “g/y/p” across the site. */
+const figtree = Figtree({
+  variable: "--font-figtree",
   subsets: ["latin"],
   weight: ["500", "600", "700", "800"],
+  display: "swap",
+  adjustFontFallback: false,
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
@@ -47,7 +53,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/brand/sportbridge-og.png",
         width: 1200,
         height: 630,
         alt: "SportBridge Global",
@@ -58,14 +64,14 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    images: ["/og-image.jpg"],
+    images: ["/brand/sportbridge-og.png"],
   },
   robots: {
     index: true,
     follow: true,
   },
   icons: {
-    icon: "/logos/sportbridge/logo-monogram.svg",
+    icon: "/brand/sportbridge-favicon.png",
   },
 };
 
@@ -98,7 +104,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${syne.variable} ${manrope.variable} antialiased`}>
+      <body className={`${figtree.variable} ${dmSans.variable}`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}

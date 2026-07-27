@@ -8,40 +8,76 @@ export type PartnerCardProps = {
   description: string;
   logoSrc?: string | null;
   href?: string | null;
+  ariaLabel?: string;
 };
 
-export function PartnerCard({ name, description, logoSrc, href }: PartnerCardProps) {
-  const external = Boolean(href && href.startsWith("http"));
-
+function ExternalArrow({ className = "h-4 w-4" }: { className?: string }) {
   return (
-    <article className="group card-premium flex h-full flex-col overflow-hidden p-7">
-      <div className="flex min-h-[120px] items-center justify-center rounded-xl border border-line bg-bg px-6 py-8">
+    <svg viewBox="0 0 16 16" className={className} fill="none" aria-hidden>
+      <path
+        d="M4.5 11.5 L11.5 4.5 M6.5 4.5 H11.5 V9.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function PartnerCard({
+  name,
+  description,
+  logoSrc,
+  href,
+  ariaLabel,
+}: PartnerCardProps) {
+  const external = Boolean(href && href.startsWith("http"));
+  const label = ariaLabel || (external ? `Visit ${name} (opens in a new tab)` : `View ${name}`);
+
+  const body = (
+    <>
+      <div className="flex min-h-[120px] w-full items-center justify-center px-3 py-5">
         {logoSrc ? (
           <SafeImage
             src={logoSrc}
             alt={`${name} logo`}
-            width={200}
-            height={80}
+            width={280}
+            height={120}
             priority
-            className="h-14 w-auto max-h-14 max-w-[180px] object-contain opacity-90 transition-opacity duration-300 group-hover:opacity-100"
+            className="!h-auto max-h-[96px] w-auto max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.03]"
           />
         ) : (
-          <span className="font-display text-lg font-bold text-primary">{name}</span>
+          <span className="font-display text-lg font-bold leading-[1.45] text-primary">{name}</span>
         )}
       </div>
-      <h3 className="mt-6 font-display text-lg font-bold text-primary">{name}</h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-muted">{description}</p>
-      {href ? (
-        <Link
-          href={href}
-          target={external ? "_blank" : undefined}
-          rel={external ? "noopener noreferrer" : undefined}
-          aria-label={external ? `${name} website (opens in a new tab)` : `View ${name}`}
-          className="btn-secondary mt-6 !px-4 !py-2.5 !text-sm"
-        >
-          Visit website
-        </Link>
-      ) : null}
-    </article>
+      <div className="mt-2 flex items-start justify-between gap-3 border-t border-line pt-5">
+        <h3 className="font-display text-lg font-bold leading-[1.45] text-primary">{name}</h3>
+        {href ? (
+          <span className="mt-1 text-gold transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+            <ExternalArrow />
+          </span>
+        ) : null}
+      </div>
+      <p className="mt-2 flex-1 text-sm leading-[1.65] text-ink-muted">{description}</p>
+    </>
+  );
+
+  if (href) {
+    return (
+      <Link
+        href={href}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
+        aria-label={label}
+        className="group card-premium flex h-full flex-col p-6 transition-transform duration-300 hover:-translate-y-1 hover:border-gold-soft md:p-7"
+      >
+        {body}
+      </Link>
+    );
+  }
+
+  return (
+    <article className="group card-premium flex h-full flex-col p-6 md:p-7">{body}</article>
   );
 }
