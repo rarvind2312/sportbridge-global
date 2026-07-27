@@ -433,12 +433,84 @@ main {
   animation: route-draw 2.4s ease forwards;
 }
 
+/* Partner marquee — ambient right-to-left loop */
+@keyframes partner-marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.partner-marquee-viewport {
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+}
+
+.partner-marquee-fade {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: clamp(2rem, 6vw, 4.5rem);
+}
+
+.partner-marquee-fade-left {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg-soft) 0%, transparent 100%);
+}
+
+.partner-marquee-fade-right {
+  right: 0;
+  background: linear-gradient(270deg, var(--bg-soft) 0%, transparent 100%);
+}
+
+.partner-marquee-track {
+  animation: partner-marquee-scroll 34s linear infinite;
+  will-change: transform;
+}
+
+.partner-marquee-viewport:hover .partner-marquee-track,
+.partner-marquee-viewport:focus-within .partner-marquee-track {
+  animation-play-state: paused;
+}
+
+.partner-marquee-static {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
   .route-line {
+    animation: none;
+  }
+
+  .partner-marquee-viewport {
+    display: none;
+  }
+
+  .partner-marquee-static {
+    display: flex;
+  }
+
+  .partner-marquee-track {
     animation: none;
   }
 }

@@ -22,6 +22,24 @@ const markets = [
     country: "India",
     detail: "Strategic partnerships and market connections",
   },
+  {
+    number: "04",
+    city: "United States",
+    country: "North America",
+    detail: "Partnerships and pathway expansion",
+  },
+  {
+    number: "05",
+    city: "Dubai",
+    country: "UAE",
+    detail: "Regional hub for programmes and introductions",
+  },
+  {
+    number: "06",
+    city: "Sri Lanka",
+    country: "South Asia",
+    detail: "Talent pathways and academy collaborations",
+  },
 ] as const;
 
 function PinIcon() {
@@ -47,53 +65,33 @@ export function ConnectedMarkets() {
             Connected across key sporting markets
           </h2>
           <p className="lead mt-5">
-            Our network currently connects Melbourne, Hyderabad and Chennai, bringing together
-            sporting expertise, development pathways and strategic opportunities.
+            Our network currently connects Melbourne, Hyderabad, Chennai, the US, Dubai and Sri
+            Lanka, bringing together sporting expertise, development pathways and strategic
+            opportunities.
           </p>
         </Reveal>
 
-        <div className="relative mt-14">
-          <div
-            className="pointer-events-none absolute left-[8%] right-[8%] top-[3.25rem] hidden h-px md:block"
-            aria-hidden
-          >
-            <svg className="h-full w-full overflow-visible" preserveAspectRatio="none">
-              <line
-                x1="0"
-                y1="1"
-                x2="100%"
-                y2="1"
-                stroke="#B99352"
-                strokeWidth="1.5"
-                strokeDasharray="6 8"
-                className={reduce ? undefined : "route-line"}
-                opacity="0.7"
-              />
-            </svg>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-3">
-            {markets.map((market, i) => (
-              <Reveal key={market.city} delay={0.06 * i}>
-                <motion.article
-                  whileHover={reduce ? undefined : { y: -3 }}
-                  className="card-premium h-full p-7"
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <span className="font-display text-2xl font-bold text-gold">{market.number}</span>
-                    <PinIcon />
-                  </div>
-                  <h3 className="mt-8 font-display text-2xl font-bold uppercase leading-[1.4] tracking-[-0.02em] text-primary">
-                    {market.city}
-                  </h3>
-                  <p className="mt-1 text-sm font-semibold uppercase tracking-[0.14em] text-ink-dim">
-                    {market.country}
-                  </p>
-                  <p className="mt-4 text-sm leading-relaxed text-ink-muted">{market.detail}</p>
-                </motion.article>
-              </Reveal>
-            ))}
-          </div>
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {markets.map((market, i) => (
+            <Reveal key={market.city} delay={0.06 * i}>
+              <motion.article
+                whileHover={reduce ? undefined : { y: -3 }}
+                className="card-premium h-full p-7"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <span className="font-display text-2xl font-bold text-gold">{market.number}</span>
+                  <PinIcon />
+                </div>
+                <h3 className="mt-8 font-display text-2xl font-bold uppercase leading-[1.4] tracking-[-0.02em] text-primary">
+                  {market.city}
+                </h3>
+                <p className="mt-1 text-sm font-semibold uppercase tracking-[0.14em] text-ink-dim">
+                  {market.country}
+                </p>
+                <p className="mt-4 text-sm leading-relaxed text-ink-muted">{market.detail}</p>
+              </motion.article>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

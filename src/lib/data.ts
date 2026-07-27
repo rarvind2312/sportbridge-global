@@ -2,13 +2,16 @@ export const siteConfig = {
   name: "SportBridge Global",
   tagline: "Connecting Talent. Technology. Opportunity.",
   description:
-    "SportBridge Global is a sports partnerships, pathways, performance and innovation platform connecting athletes, coaches, clubs, academies, technology providers and sporting organisations across Melbourne, Hyderabad and Chennai.",
+    "SportBridge Global is a sports partnerships, pathways, performance and innovation platform connecting athletes, coaches, clubs, academies, technology providers and sporting organisations across Melbourne, Hyderabad, Chennai, the US, Dubai and Sri Lanka.",
   url: "https://sportbridgeglobal.com.au",
-  location: "Melbourne · Hyderabad · Chennai",
+  location: "Melbourne · Hyderabad · Chennai · US · Dubai · Sri Lanka",
   locations: [
     "Melbourne, Australia",
     "Hyderabad, India",
     "Chennai, India",
+    "United States",
+    "Dubai",
+    "Sri Lanka",
   ] as const,
 };
 
@@ -151,6 +154,10 @@ export const servicePillars = [
       {
         title: "High Performance Camps",
         text: "Focused training blocks designed around measurable technical and physical outcomes.",
+      },
+      {
+        title: "Batting Masterclass",
+        text: "Intent, shot selection and match craft developed with specialist batting coaches in high-intensity environments.",
       },
       {
         title: "Pace Bowling Labs",

@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/data";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "SportBridge Global exists to connect talent, technology and opportunity across sporting ecosystems in Melbourne, Hyderabad and Chennai.",
+    "SportBridge Global exists to connect talent, technology and opportunity across sporting ecosystems in Melbourne, Hyderabad, Chennai, the US, Dubai and Sri Lanka.",
   alternates: { canonical: "/about" },
 };
 
@@ -79,7 +79,7 @@ export default function AboutPage() {
             },
             {
               title: "How We Work",
-              text: "We facilitate introductions, design programmes and support delivery with clarity and pace. Every engagement is tailored to organisational context across Melbourne, Hyderabad and Chennai.",
+              text: "We facilitate introductions, design programmes and support delivery with clarity and pace. Every engagement is tailored to organisational context across Melbourne, Hyderabad, Chennai, the US, Dubai and Sri Lanka.",
             },
             {
               title: "Our Markets",
