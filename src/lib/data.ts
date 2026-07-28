@@ -3,7 +3,7 @@ export const siteConfig = {
   tagline: "Connecting Talent. Technology. Opportunity.",
   description:
     "SportBridge Global connects sporting organisations, academies, coaches, athletes, technology providers and strategic partners across Australia and India to create pathways, partnerships and opportunities in sport.",
-  url: "https://sportbridgeglobal.com.au",
+  url: "https://sportbridgeglobal.com.au", // keep in sync with src/lib/seo.ts PRODUCTION_ORIGIN
   location: "Melbourne · Hyderabad · Chennai · US · Dubai · Sri Lanka",
   locations: [
     "Melbourne, Australia",

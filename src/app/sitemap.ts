@@ -1,20 +1,15 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@/lib/data";
+import { PRODUCTION_PAGES, absoluteUrl } from "@/lib/seo";
 
+/**
+ * Single authoritative sitemap — native Next.js App Router.
+ * Do not add next-sitemap or public/sitemap.xml alongside this.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [
-    { path: "/", priority: 1 },
-    { path: "/about", priority: 0.8 },
-    { path: "/services", priority: 0.8 },
-    { path: "/network", priority: 0.8 },
-    { path: "/opportunities", priority: 0.8 },
-    { path: "/contact", priority: 0.8 },
-  ] as const;
-
-  return routes.map((route) => ({
-    url: `${siteConfig.url}${route.path === "/" ? "/" : route.path}`,
+  return PRODUCTION_PAGES.map((path) => ({
+    url: absoluteUrl(path),
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
-    priority: route.priority,
+    priority: path === "/" ? 1 : 0.8,
   }));
 }
