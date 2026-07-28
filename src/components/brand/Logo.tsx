@@ -22,7 +22,7 @@ export function LogoHorizontal({
   return (
     <SafeImage
       src={src}
-      alt="SportBridge Global"
+      alt="SportBridge Global logo"
       width={1021}
       height={247}
       className={className}
@@ -35,7 +35,7 @@ export function LogoMonogram({ className = "h-11 w-11", priority }: LogoProps) {
   return (
     <SafeImage
       src="/brand/sportbridge-monogram.png"
-      alt="SportBridge Global"
+      alt="SportBridge Global logo"
       width={361}
       height={361}
       className={className}
@@ -48,7 +48,7 @@ export function LogoSeal({ className = "h-56 w-56" }: LogoProps) {
   return (
     <SafeImage
       src="/brand/sportbridge-monogram.png"
-      alt="SportBridge Global seal"
+      alt="SportBridge Global logo"
       width={361}
       height={361}
       className={className}

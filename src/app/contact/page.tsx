@@ -5,11 +5,16 @@ import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { contacts, siteConfig } from "@/lib/data";
 
+const title = "Contact SportBridge Global";
+const description =
+  "Connect with SportBridge Global to discuss sports partnerships, pathways, technology, performance programmes and strategic opportunities.";
+
 export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Contact SportBridge Global — Arvind Ravi (Founder) and Sriram V (Strategic Partnerships) across Melbourne, Hyderabad and Chennai.",
+  title: { absolute: title },
+  description,
   alternates: { canonical: "/contact" },
+  openGraph: { title, description, url: "/contact" },
+  twitter: { title, description },
 };
 
 export default function ContactPage() {

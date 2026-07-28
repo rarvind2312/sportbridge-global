@@ -5,11 +5,16 @@ import { Reveal } from "@/components/Reveal";
 import { ServiceIcon, type IconName } from "@/components/ui/ServiceIcon";
 import { focusAreas, opportunities } from "@/lib/data";
 
+const title = "Sports Opportunities & Partnerships | SportBridge Global";
+const description =
+  "Explore partnership, investment, technology, performance and international sporting opportunities facilitated through SportBridge Global.";
+
 export const metadata: Metadata = {
-  title: "Opportunities",
-  description:
-    "Explore SportBridge Global opportunity categories across coaching programs, international pathways, technology collaborations, high performance and strategic partnerships.",
+  title: { absolute: title },
+  description,
   alternates: { canonical: "/opportunities" },
+  openGraph: { title, description, url: "/opportunities" },
+  twitter: { title, description },
 };
 
 const areaIcons: IconName[] = [

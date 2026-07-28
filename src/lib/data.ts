@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "SportBridge Global",
   tagline: "Connecting Talent. Technology. Opportunity.",
   description:
-    "SportBridge Global is a sports partnerships, pathways, performance and innovation platform connecting athletes, coaches, clubs, academies, technology providers and sporting organisations across Melbourne, Hyderabad, Chennai, the US, Dubai and Sri Lanka.",
+    "SportBridge Global connects sporting organisations, academies, coaches, athletes, technology providers and strategic partners across Australia and India to create pathways, partnerships and opportunities in sport.",
   url: "https://sportbridgeglobal.com.au",
   location: "Melbourne · Hyderabad · Chennai · US · Dubai · Sri Lanka",
   locations: [
@@ -414,7 +414,7 @@ export const partners: Array<{
     short: "Topline",
     logoSrc: "/partners/topline.png",
     href: "https://toplinecricket.com.au/",
-    ariaLabel: "Visit Topline Cricket website",
+    ariaLabel: "Visit Topline NextGen Cricket Centre website",
     description:
       "NextGen cricket centre supporting academy pathways, indoor training and high-performance development.",
   },

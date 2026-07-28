@@ -6,11 +6,16 @@ import { HashScroll } from "@/components/ui/HashScroll";
 import { ServiceIcon, type IconName } from "@/components/ui/ServiceIcon";
 import { servicePillars } from "@/lib/data";
 
+const title = "Sports Partnerships & Services | SportBridge Global";
+const description =
+  "Explore SportBridge Global services across global pathways, high-performance programmes, sports technology, strategic partnerships, market intelligence and athlete development.";
+
 export const metadata: Metadata = {
-  title: "Services",
-  description:
-    "SportBridge Global services spanning global pathways, high performance, sports technology, strategic partnerships, market intelligence, athlete development and network collaborations.",
+  title: { absolute: title },
+  description,
   alternates: { canonical: "/services" },
+  openGraph: { title, description, url: "/services" },
+  twitter: { title, description },
 };
 
 export default function ServicesPage() {

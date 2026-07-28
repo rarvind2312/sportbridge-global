@@ -5,11 +5,16 @@ import { Reveal } from "@/components/Reveal";
 import { PartnerCard } from "@/components/ui/PartnerCard";
 import { partners } from "@/lib/data";
 
+const title = "Global Sports Network | SportBridge Global";
+const description =
+  "Explore SportBridge Global's growing network across sporting organisations, academies, performance, coaching and sports technology.";
+
 export const metadata: Metadata = {
-  title: "Network",
-  description:
-    "SportBridge Global’s current network includes Topline NextGen, F16 and CFC Excellence Cricket Academy, with additional collaborations in discussion across Melbourne, Hyderabad and Chennai.",
+  title: { absolute: title },
+  description,
   alternates: { canonical: "/network" },
+  openGraph: { title, description, url: "/network" },
+  twitter: { title, description },
 };
 
 export default function NetworkPage() {

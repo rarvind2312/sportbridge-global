@@ -19,7 +19,13 @@ const marqueePartners: MarqueePartner[] = partners
     name: p.name,
     src: p.logoSrc as string,
     href: p.href,
-    alt: `${p.name} logo`,
+    alt: p.name === "Topline NextGen"
+      ? "Topline NextGen Cricket Centre"
+      : p.name === "F16"
+        ? "F16 Sports"
+        : p.name === "CFC Excellence Cricket Academy"
+          ? "CFC Excellence Cricket Academy"
+          : `${p.name} logo`,
     ariaLabel: p.ariaLabel,
     wide: p.short === "Topline",
   }));

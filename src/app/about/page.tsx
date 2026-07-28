@@ -6,11 +6,16 @@ import { Reveal } from "@/components/Reveal";
 import { ServiceIcon } from "@/components/ui/ServiceIcon";
 import { siteConfig } from "@/lib/data";
 
+const title = "About SportBridge Global | Global Sports Network";
+const description =
+  "Discover SportBridge Global, connecting sporting organisations, academies, coaches, technology providers and strategic partners across Melbourne, Hyderabad and Chennai.";
+
 export const metadata: Metadata = {
-  title: "About",
-  description:
-    "SportBridge Global exists to connect talent, technology and opportunity across sporting ecosystems in Melbourne, Hyderabad, Chennai, the US, Dubai and Sri Lanka.",
+  title: { absolute: title },
+  description,
   alternates: { canonical: "/about" },
+  openGraph: { title, description, url: "/about" },
+  twitter: { title, description },
 };
 
 const pillars = [

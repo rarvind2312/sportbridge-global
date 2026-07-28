@@ -23,13 +23,21 @@ const dmSans = DM_Sans({
   adjustFontFallback: false,
 });
 
+const ogImage = {
+  url: "/brand/sportbridge-og.png",
+  width: 1200,
+  height: 630,
+  alt: "SportBridge Global — Connecting Talent. Technology. Opportunity.",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | ${siteConfig.tagline}`,
-    template: `%s | ${siteConfig.name}`,
+    default: "SportBridge Global | Sports Partnerships, Pathways & Technology",
+    template: "%s | SportBridge Global",
   },
   description: siteConfig.description,
+  applicationName: siteConfig.name,
   keywords: [
     "SportBridge Global",
     "sports partnerships",
@@ -37,41 +45,53 @@ export const metadata: Metadata = {
     "sports technology",
     "high performance",
     "sports business advisory",
-    "tournament valuation",
+    "global sports network",
+    "Melbourne",
+    "Hyderabad",
+    "Chennai",
   ],
   authors: [
     { name: "Arvind Ravi" },
     { name: "Sriram V" },
     { name: siteConfig.name },
   ],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_AU",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: siteConfig.name,
+    title: "SportBridge Global | Sports Partnerships, Pathways & Technology",
     description: siteConfig.description,
-    images: [
-      {
-        url: "/brand/sportbridge-og.png",
-        width: 1200,
-        height: 630,
-        alt: "SportBridge Global",
-      },
-    ],
+    images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
+    title: "SportBridge Global | Sports Partnerships, Pathways & Technology",
     description: siteConfig.description,
-    images: ["/brand/sportbridge-og.png"],
+    images: [ogImage.url],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   icons: {
-    icon: "/brand/sportbridge-favicon.png",
+    icon: [
+      { url: "/brand/sportbridge-favicon.png", type: "image/png" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    apple: [{ url: "/brand/sportbridge-apple-touch.png", sizes: "180x180", type: "image/png" }],
   },
 };
 
@@ -86,12 +106,12 @@ export default function RootLayout({
     name: siteConfig.name,
     url: siteConfig.url,
     description: siteConfig.description,
-    email: contacts.map((c) => c.email),
-    telephone: contacts.map((c) => c.phone),
-    areaServed: siteConfig.locations.map((name) => ({
-      "@type": "Place",
-      name,
-    })),
+    logo: `${siteConfig.url}/brand/sportbridge-header.png`,
+    areaServed: [
+      { "@type": "City", name: "Melbourne" },
+      { "@type": "City", name: "Hyderabad" },
+      { "@type": "City", name: "Chennai" },
+    ],
     contactPoint: contacts.map((person) => ({
       "@type": "ContactPoint",
       contactType: person.role,
@@ -103,7 +123,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en-AU">
       <body className={`${figtree.variable} ${dmSans.variable}`}>
         <script
           type="application/ld+json"

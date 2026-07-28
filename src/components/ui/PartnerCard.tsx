@@ -41,7 +41,15 @@ export function PartnerCard({
         {logoSrc ? (
           <SafeImage
             src={logoSrc}
-            alt={`${name} logo`}
+            alt={
+              name === "Topline NextGen"
+                ? "Topline NextGen Cricket Centre"
+                : name === "F16"
+                  ? "F16 Sports"
+                  : name === "CFC Excellence Cricket Academy"
+                    ? "CFC Excellence Cricket Academy"
+                    : `${name} logo`
+            }
             width={280}
             height={120}
             priority
