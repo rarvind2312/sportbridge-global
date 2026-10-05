@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "test:smoke": "playwright test",
-    "test:links": "linkinator http://127.0.0.1:3010 --recurse --skip \"mailto:|tel:|sportbridgeglobal\\.com\\.au|toplinecricket\\.com\\.au|f16sports\\.com\" --verbosity error"
+    "test:links": "linkinator http://127.0.0.1:3010 --recurse --skip \"mailto:|tel:|sportbridgeglobal\\.com\\.au|f16sports\\.com\" --verbosity error"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

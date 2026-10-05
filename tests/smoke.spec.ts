@@ -79,7 +79,7 @@ test.describe("SportBridge smoke", () => {
     await expect(page.getByText(/Global Pathways/i).first()).toBeVisible();
     await expect(page.getByText(/Our Growing Network/i)).toBeVisible();
     await expect(page.locator('img[src*="sportbridge-hero"]')).toBeVisible();
-    await expect(page.getByText("Topline · F16 · CFC")).toHaveCount(0);
+    await expect(page.getByText(/Topline/i)).toHaveCount(0);
 
     for (const item of ["About", "Services", "Network", "Opportunities", "Contact"] as const) {
       await page.getByRole("navigation", { name: "Primary" }).getByRole("link", { name: item }).click();
@@ -124,13 +124,15 @@ test.describe("SportBridge smoke", () => {
       /Building connections across sport/i
     );
 
-    for (const name of ["Topline NextGen", "F16", "CFC Excellence Cricket Academy"] as const) {
-      const img = page.locator(`img[alt="${name} logo"]`);
+    for (const alt of ["F16 Sports", "CFC Excellence Cricket Academy"] as const) {
+      const img = page.locator(`img[alt="${alt}"]`).first();
       await expect(img).toBeVisible();
       await expect
         .poll(async () => img.evaluate((el: HTMLImageElement) => el.naturalWidth))
         .toBeGreaterThan(0);
     }
+    await expect(page.getByText(/Topline/i)).toHaveCount(0);
+    await expect(page.locator('img[src*="topline"]')).toHaveCount(0);
 
     const cfc = page.getByRole("link", {
       name: /Visit CFC Excellence Cricket Academy on Instagram/i,

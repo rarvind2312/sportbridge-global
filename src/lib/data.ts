@@ -410,15 +410,6 @@ export const partners: Array<{
   description: string;
 }> = [
   {
-    name: "Topline NextGen",
-    short: "Topline",
-    logoSrc: "/partners/topline.png",
-    href: "https://toplinecricket.com.au/",
-    ariaLabel: "Visit Topline NextGen Cricket Centre website",
-    description:
-      "NextGen cricket centre supporting academy pathways, indoor training and high-performance development.",
-  },
-  {
     name: "F16",
     short: "F16",
     logoSrc: "/partners/f16.png",

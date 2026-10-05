@@ -35,7 +35,7 @@ export default function NetworkPage() {
             </h2>
           </Reveal>
 
-          <div className="mt-12 grid gap-5 lg:grid-cols-3">
+          <div className="mt-12 grid gap-5 md:grid-cols-2">
             {partners.map((partner, i) => (
               <Reveal key={partner.name} delay={0.06 * i}>
                 <PartnerCard {...partner} />
